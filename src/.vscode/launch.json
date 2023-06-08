@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/captncarty/Desktop/MAZERUNNER/src",
+      "program": "/Users/captncarty/Desktop/MAZERUNNER/src/build/Debug/outDebug"
+    }
+  ]
+}
