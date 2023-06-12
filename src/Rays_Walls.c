@@ -24,7 +24,7 @@ void drawRays(){
 
         if ( cos(getRad(ra)) > 0.001){
             rx = (((int)px >> 6) << 6) + 64;    ry = (px - rx) * Tan + py;  xo = 64;    yo =- xo*Tan;   //look left
-        }else if (cos(getRad(ra)) < 0.001){
+        }else if (cos(getRad(ra)) <  -0.001){
             rx = (((int)px >> 6) << 6) - 0.0001;    ry = (px - rx) * Tan + py;  xo=-64;   yo=-xo*Tan;   //look right
         }else {
             rx = px;    ry = py;    dof = 8;    //no hit
@@ -47,7 +47,7 @@ void drawRays(){
         if ( sin(getRad(ra)) > 0.001){
             ry = (((int)py >> 6) << 6) - 0.0001;  rx = (py - ry) * Tan + px;  yo=-64; xo=-yo*Tan;   //look up
         }else if( sin(getRad(ra)) < -0.001){
-            ry = (((int)py >> 6) << 6) + 64;    rx = (py - ry) * Tan + px;  xo =- yo*Tan;
+            ry = (((int)py >> 6) << 6) + 64;    rx = (py - ry) * Tan + px;  yo = 64;    xo =- yo*Tan;   //look down
         }else {
             rx = px;    ry = py;    dof = 8;
         }
@@ -65,24 +65,28 @@ void drawRays(){
         glColor3f(0, 0.8, 0);
 
         if (disV < disH){
-            hmt = vmt;  shade = 0.5;    ry = vx;    disH = disV;    glColor3f(0,0.6,0);
+            hmt = vmt;  shade = 0.5;    rx = vx;    ry = vy;    disH = disV;    glColor3f(0,0.6,0);
         }   //horizontal hit
 
         glLineWidth(2); glBegin(GL_LINES);  glVertex2i(px, py); glVertex2i(rx, ry);
         glEnd();    //draw 2D ray
 
-        int ca = fixAngle(pa - ra); disH = disH * cos(getRad(ca));  //fix fisheye
+        int ca = fixAngle(pa - ra);
+        disH = disH * cos(getRad(ca));  //fix fisheye
+
         int lineH = (mapS * 320)/(disH);    float ty_step = 32.0/(float)lineH;  float ty_off = 0;
 
         if (lineH > 320){
-            ty_off = (lineH - 320)/2.0; lineH = 329;
+            ty_off = (lineH - 320)/2.0; lineH = 320;
         }   //line height n limit
 
         int lineOff = 160 - (lineH >> 1);   //line offset
 
 
         /***draw Walls***/
-        int y;  float ty = ty_off*ty_step + hmt*32; float tx;
+        int y;
+        float ty = ty_off*ty_step + hmt*32;
+        float tx;
 
         if (shade == 1){
             tx = (int)(rx/2.0) % 32;
@@ -116,7 +120,7 @@ void drawRays(){
 
             /***draw ceiling***/
             mp = mapC[(int)(ty / 32.0) * mapX + (int)(tx / 32.0)] * 32*32;
-            c = myTextures[((int)(ty) & 31) + mp] * 0.7;
+            c = myTextures[((int)(ty) & 31) * 32 + ((int)(tx) & 31) + mp] * 0.7;
             glColor3f(c/2.0, c/1.2, c/2.0); glPointSize(8);
             glBegin(GL_POINTS); glVertex2i(r*8 + 530, 320 - y);
             glEnd();
