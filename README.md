@@ -11,7 +11,7 @@ This repository contains the files to launch a **A First Person's view Game** wi
 
 This **MazeGame** is a mini project written in C programming language that gives the user a virtual interface well laced with critical functionalities enabling robust movement and interactions.
 
-## The banking system provides the following features:
+## The MAZEGAME provides the following features:
 
 * **getRad()** - This function converts the angle to Radian
 * **fixAngle()** - This function helps to correct the given Angle
@@ -29,11 +29,13 @@ This **MazeGame** is a mini project written in C programming language that gives
 
 Simply run the Makefile: <b>make</b>
 
-Make use of <b>wasd</b> for controls and <b>e</b> to open doors
-
+Make use of <b>wasd</b> for controls and <b>o</b> to open doors
+<p align ="center">
+    <img width="500" height="300" src="landing_page/gameshot.png">
+</p>
 ### Dependecies
 install OpenGl library
 for Macbook install **XQuartz** which allows running X11-based applications 
 
 ### AUTHOR
-- *Kelvin Maccarthy* - [@Captncarty](https://github.com/Captncarty)
+ZE- *Kelvin Maccarthy* - [@Captncarty](https://github.com/Captncarty)
