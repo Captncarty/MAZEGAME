@@ -36,7 +36,7 @@ Make use of <b>wasd</b> for controls and <b>o</b> to open doors
 
 ### Dependecies
 install OpenGl library
-for Macbook install **XQuartz** which allows running X11-based applications 
+for Macbook<br> Install **XQuartz** which allows running X11-based applications 
 
 ### AUTHOR
 *Kelvin Maccarthy* - [@Captncarty](https://github.com/Captncarty)
