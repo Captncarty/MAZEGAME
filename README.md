@@ -33,9 +33,10 @@ Make use of <b>wasd</b> for controls and <b>o</b> to open doors
 <p align ="center">
     <img width="500" height="300" src="landing_page/gameshot.png">
 </p>
+
 ### Dependecies
 install OpenGl library
 for Macbook install **XQuartz** which allows running X11-based applications 
 
 ### AUTHOR
-ZE- *Kelvin Maccarthy* - [@Captncarty](https://github.com/Captncarty)
+*Kelvin Maccarthy* - [@Captncarty](https://github.com/Captncarty)
